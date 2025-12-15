@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web:
+    # Nome do contêiner
+    container_name: todo-list-api
+    
+    # Constrói a imagem a partir do Dockerfile neste diretório
+    build: .
+    
+    # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina (host)
+    ports:
+      - "8000:8000"
+      
+    # O comando que o contêiner deve executar (redundante, mas útil)
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
